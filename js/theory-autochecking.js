@@ -1711,6 +1711,148 @@ Result of code execution:
 
 /*
 ** THEORY
+The standard set of daily tasks for a developer includes manipulating an array of objects of the same type. This means that all objects in the array are guaranteed to have the same set of properties, but with different values.
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+];
+To iterate over such an array, the standard for...of loop is used. The values ​​of the properties of each object can be obtained using the "dot" syntax, since in each object the set of properties and their names will be the same, only the values ​​differ.
+
+for (const book of books) {
+  // Book object
+  console.log(book);
+  // Name
+  console.log(book.title);
+  // Author
+  console.log(book.author);
+  // Rating
+  console.log(book.rating);
+}
+
+** TASK
+Iterate over the array of colors objects using a for...of loop. Add the hex property values ​​to the hexColors array, and the rgb property values ​​from all the colors array objects to the rgbColors array.
+
+** Test
+The variable colors is declared
+The value of the variable colors is an array
+The variable hexColors is declared
+The value of the variable hexColors is the array ["#f44336", "#2196f3", "#4caf50", "#ffeb3b"]
+The variable rgbColors is declared
+The value of the rgbColors variable is the array ["244,67,54", "33,150,243", "76,175,80", "255,235,59"]
+
+ */
+
+// Javascript Editor:
+// START
+/*
+const colors = [
+  { hex: "#f44336", rgb: "244,67,54" },
+  { hex: "#2196f3", rgb: "33,150,243" },
+  { hex: "#4caf50", rgb: "76,175,80" },
+  { hex: "#ffeb3b", rgb: "255,235,59" },
+];
+
+const hexColors = [];
+const rgbColors = [];
+// Change code below this line
+
+*/
+
+// Javascript Editor:
+// FINISH
+/*
+'use strict';
+
+const colors = [
+  { hex: '#f44336', rgb: '244,67,54' },
+  { hex: '#2196f3', rgb: '33,150,243' },
+  { hex: '#4caf50', rgb: '76,175,80' },
+  { hex: '#ffeb3b', rgb: '255,235,59' },
+];
+
+const hexColors = [];
+const rgbColors = [];
+for (const color of colors) {
+  hexColors.push(color.hex);
+  rgbColors.push(color.rgb);
+}
+console.log(hexColors);
+console.log(rgbColors);
+*/
+
+// RESULT
+/*
+Result
+
+Done
+
+Assignment 17/41
+The variable 'colors' is declared
+The value of the 'colors' variable is an array
+The variable 'hexColors' is declared
+The value of the variable 'hexColors' is an array ['#f44336', '#2196f3', '#4caf50', '#ffeb3b']
+The variable 'rgbColors' is declared
+The value of the 'rgbColors' variable is an array ['244,67,54', '33,150,243', '76,175,80', '255,235,59']
+The values of the 'hexColors' and 'rgbColors' variables were obtained using the 'for...of' loop
+
+Result of code execution:
+[ '#f44336', '#2196f3', '#4caf50', '#ffeb3b' ]
+[ '244,67,54', '33,150,243', '76,175,80', '255,235,59' ]
+
+*/
+
+///////////////////////////////////////////////
+// JS V2 block-3 Autochecking  ASSIGNMENT 18/41  Status: Done
+
+/*
+** THEORY
+
+
+** TASK
+
+
+** Test
+
+
+ */
+
+// Javascript Editor:
+// START
+/*
+
+*/
+
+// Javascript Editor:
+// FINISH
+/*
+
+*/
+
+// RESULT
+/*
+
+
+*/
+
+///////////////////////////////////////////////
+// JS V2 block-3 Autochecking  ASSIGNMENT 19/41  Status: Done
+
+/*
+** THEORY
 
 
 ** TASK
