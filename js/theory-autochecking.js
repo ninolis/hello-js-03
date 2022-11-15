@@ -1242,23 +1242,472 @@ apartment.price = 2153;
 
 for (const key in apartment) {
   // Change code below this line
-
-  keys.push(key);
-  values.push(apartment[key]);
+if (apartment.hasOwnProperty(key))
+  {keys.push(key);
+  values.push(apartment[key]);}
 
   // Change code above this line
 }
+
+console.log(keys);
+console.log(values);
+console.table(apartment);
 
 */
 
 // RESULT
 /*
+Result
 
+Done
+
+Assignment 11/41
+The variable 'advert' is declared
+The value of the 'advert' variable is an object
+The variable 'apartment' is declared
+The value of the variable 'apartment' is an object
+The variable 'keys' is declared
+The value of the variable 'keys' is an array ['descr', 'rating', 'price']
+The variable 'values' is declared
+The value of the variable 'values' is an array ['descr', 'rating', 'price']
+The 'for ... in' loop is used
+Inside the 'for...in' loop, use the 'if' to check the own properties of the 'apartment' object
+
+Result of code execution:
+[ 'descr', 'rating', 'price' ]
+[ 'Spacious apartment in the city center', 4, 2153 ]
 
 */
 
 ///////////////////////////////////////////////
 // JS V2 block-3 Autochecking  ASSIGNMENT 12/41  Status: Done
+
+/*
+** THEORY
+TASK: COUNTING PROPERTIES
+
+** TASK
+Write a function countProps(object), that counts and returns the number of an object's own properties in the object parameter. Use the variable propCount to store the number of properties of the object.
+
+** Test
+The function countProps(object) is declared
+The call countProps({}) returns 0
+The call countProps({ name: "Mango", age: 2 }) returns 2
+The call countProps({ mail: "poly@mail.com", isOnline: true, score: 500 }) returns 3
+The function only counts the object's own properties
+
+ */
+
+// Javascript Editor:
+// START
+/*
+function countProps(object) {
+  let propCount = 0;
+  // Change code below this line
+
+  // Change code above this line
+  return propCount;
+}
+
+*/
+
+// Javascript Editor:
+// FINISH
+/*
+'use strict';
+
+function countProps(object) {
+  let propCount = 0;
+  for (const key in object) {
+    if (object.hasOwnProperty(key)) {
+      propCount += 1;
+    }
+  }
+  return propCount;
+}
+
+countProps({}); // returns 0
+countProps({ name: 'Mango', age: 2 }); // returns 2
+countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 }); // returns 3
+
+console.log(countProps({}));
+console.log(countProps({ name: 'Mango', age: 2 }));
+console.log(countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 }));
+
+*/
+
+// RESULT
+/*
+Result
+
+Done
+
+Assignment 12/41
+The countProps(object) function is declared
+The call countProps({}) returns 0
+The call countProps({ name: 'Mango', age: 2 }) returns 2
+The call countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 }}) returns 3
+The function only counts the object's own properties
+Result of code execution:
+0
+2
+3
+
+*/
+
+///////////////////////////////////////////////
+// JS V2 block-3 Autochecking  ASSIGNMENT 13/41  Status: Done
+
+/*
+** THEORY
+The built-in class Object has several useful methods for working with objects. The first is Object.keys(obj), which takes an object and returns an array of its own property keys. If the object has no properties, the method will return an empty array.
+
+const book = {
+  title: "The Last Kingdom",
+  author: "Bernard Cornwell",
+  genres: ["historical prose", "adventure"],
+  rating: 8.38,
+};
+const keys = Object.keys(book);
+console.log(keys); // ['title', 'author', 'genres', 'rating']
+By combining the result of Object.keys() and the for...of loop, you can conveniently iterate over the object's own properties without resorting to using the archaic for...in loop with property ownership checks.
+
+const book = {
+  author: "Bernard Cornwell",
+  genres: ["historical prose", "adventure"],
+  rating: 8.38,
+};
+const keys = Object.keys(book);
+
+for (const key of keys) {
+  // Key
+  console.log(key);
+  // Property value
+  console.log(book[key]);
+}
+We iterate over an array of object keys and, at each iteration, get the value of a property with such a key.
+
+** TASK
+Iterate over the apartment object using the Object.keys() method and the for...of loop. Assign to the variable keys the array of the keys of the own properties of the object apartment, and add all the values ​​of its properties to the array values.
+
+** Test
+The variable apartment is declared.
+The value of the variable apartment is an object.
+The variable keys is declared.
+The value of the variable keys is the array ["descr", "rating", "price"].
+The value of the variable keys was obtained using the method Object.keys().
+The variable values is declared.
+The value of the variable values is the array ["Spacious apartment in the city center", 4, 2153].
+The value of the values variable is obtained using the for...of loop.
+
+ */
+
+// Javascript Editor:
+// START
+/*
+const apartment = {
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+};
+const values = [];
+// Change code below this line
+const keys = apartment;
+
+*/
+
+// Javascript Editor:
+// FINISH
+/*
+'use strict';
+
+const apartment = {
+  descr: 'Spacious apartment in the city center',
+  rating: 4,
+  price: 2153,
+};
+const values = [];
+const keys = Object.keys(apartment);
+
+for (const key of keys) {
+  // if (apartment.hasOwnProperty(key)) {
+    values.push(apartment[key]);
+  // }
+}
+
+console.log(keys);
+console.log(values);
+console.table(apartment);
+*/
+
+// RESULT
+/*
+Result
+
+Done
+
+Assignment 13/41
+The variable 'apartment' is declared
+The value of the variable 'apartment' is an object
+The variable 'keys' is declared
+The value of the variable 'keys' is an array ['descr', 'rating', 'price']
+The value of the 'keys' variable was obtained using the Object.keys() method
+The variable 'values' is declared
+The value of the variable 'values' is an array ['Spacious apartment in the city center', 4, 2153]
+The value of the variable 'values' was obtained using the loop `for...of
+Result of code execution:
+[ 'descr', 'rating', 'price' ]
+[ 'Spacious apartment in the city center', 4, 2153 ]
+
+*/
+
+///////////////////////////////////////////////
+// JS V2 block-3 Autochecking  ASSIGNMENT 14/41  Status: Done
+
+/*
+** THEORY
+TASK. COUNTING PROPERTIES 2.0
+
+** TASK
+Refactor the countProps(object) function using the Object.keys() method and optionally a for...of loop.
+
+** Test
+The function countProps(object) is declared
+The call countProps({}) returns 0
+The call countProps({ name: "Mango", age: 2 }) returns 2
+The call countProps({ mail: "poly@mail.com", isOnline: true, score: 500 }) returns 3
+The function only counts the object's own properties
+The function uses the Object.keys() method and, possibly, the for...of loop
+
+ */
+
+// Javascript Editor:
+// START
+/*
+function countProps(object) {
+  // Change code below this line
+  let propCount = 0;
+
+  for (const key in object) {
+    if (object.hasOwnProperty(key)) {
+      propCount += 1;
+    }
+  }
+
+  return propCount;
+  // Change code above this line
+}
+
+*/
+
+// Javascript Editor:
+// FINISH
+/*
+function countProps(object) {
+
+  let propCount = 0;
+  const keys = Object.keys(object);
+  
+  for (const key of keys) {
+    propCount += 1;
+  }
+
+  return propCount;
+}
+
+countProps({}); // returns 0
+countProps({ name: 'Mango', age: 2 }); // returns 2
+countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 }); // returns 3
+
+console.log(countProps({})); // returns 0
+console.log(countProps({ name: 'Mango', age: 2 })); // returns 2
+console.log(countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 })); // returns 3
+*/
+
+// RESULT
+/*
+Result
+
+Done
+
+Assignment 14/41
+The countProps(object) function is declared
+The call countProps({}) returns 0
+The call countProps({ name: 'Mango', age: 2 }) returns 2
+The call countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 }}) returns 3
+The function only counts the object's own properties
+The function uses the Object.keys() method and possibly a 'for...of' loop
+
+Result of code execution:
+0
+2
+3
+
+*/
+
+///////////////////////////////////////////////
+// JS V2 block-3 Autochecking  ASSIGNMENT 15/41  Status: Done
+
+/*
+** THEORY
+If the Object.keys(obj) method returns an array of the object's own property keys, then the Object.values(obj) method returns an array of its own property values. If the object has no properties, the Object.values(obj) method will return an empty array.
+
+const book = {
+  title: "The Last Kingdom",
+  author: "Bernard Cornwell",
+  rating: 8.38,
+};
+const keys = Object.keys(book);
+console.log(keys); // ["title", "author", "rating"]
+
+const values = Object.values(book);
+console.log(values); // ["The Last Kingdom", "Bernard Cornwell", 8.38]
+The array of property values ​​can also be iterated over with a for...of loop, for example, to get the total sum of numeric values.
+
+** TASK
+Write to the variable keys an array of the keys of the own properties of the object apartment, and to the variable values an array of all the values ​​of its properties. Use the methods Object.keys() and Object.values​​().
+
+** Test
+The variable apartment is declared
+The value of the variable apartment is an object
+The variable keys is declared
+The value of the variable keys is the array ["descr", "rating", "price"]
+The variable values is declared
+The value of the variable values is the array ["Spacious apartment in the city center", 4, 2153]
+To get an array of keys of the object apartment the Object.keys() method is used
+To get an array of values ​​of the object apartment the Object.values() method is used
+
+ */
+
+// Javascript Editor:
+// START
+/*
+const apartment = {
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+};
+// Change code below this line
+const keys = apartment;
+const values = apartment;
+*/
+
+// Javascript Editor:
+// FINISH
+/*
+const apartment = {
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+};
+// Change code below this line
+const keys = Object.keys(apartment);
+const values = Object.values(apartment);
+
+console.log(keys); // ["descr", "rating", "price"]
+console.log(values); // ["Spacious apartment in the city center", 4, 2153]
+*/
+
+// RESULT
+/*
+Result
+
+Done
+
+Assignment 15/41
+The variable 'apartment' is declared
+The value of the variable 'apartment' is an object
+The variable 'keys' is declared
+The value of the variable 'keys' is an array ['descr', 'rating', 'price']
+The value of the 'keys' variable was obtained using the Object.keys() method
+The variable 'values' is declared
+The value of the variable 'values' is an array ['Spacious apartment in the city center', 4, 2153]
+The value of the variable 'values' was obtained using the Object.values() method
+
+Result of code execution:
+[ 'descr', 'rating', 'price' ]
+[ 'Spacious apartment in the city center', 4, 2153 ]
+
+*/
+
+///////////////////////////////////////////////
+// JS V2 block-3 Autochecking  ASSIGNMENT 16/41  Status: Done
+
+/*
+** THEORY
+TASK: PAYROLL EXPENSES
+
+** TASK
+Write a function countTotalSalary(salaries) that takes a salaries object, where the property name is the employee's name and the property value is the salary. The function should calculate the total amount of employees' salaries and return it. Use the variable totalSalary to store the total salary.
+
+** Test
+The function countTotalSalary(salaries) is declared
+The call countTotalSalary({}) returns 0
+The call countTotalSalary({ mango: 100, poly: 150, alfred: 80 }) returns 330
+The call countTotalSalary({ kiwi: 200, poly: 50, ajax: 150 }) returns 400
+The function only counts the object's own properties
+
+ */
+
+// Javascript Editor:
+// START
+/*
+function countTotalSalary(salaries) {
+  let totalSalary = 0;
+  // Change code below this line
+
+  // Change code above this line
+  return totalSalary;
+}
+*/
+
+// Javascript Editor:
+// FINISH
+/*
+'use strict';
+
+function countTotalSalary(salaries) {
+  let totalSalary = 0;
+  // Change code below this line
+  const values = Object.values(salaries);
+  for (const salary of values) {
+    totalSalary += salary;
+  }
+  // Change code above this line
+  return totalSalary;
+}
+
+countTotalSalary({}); // returns 0
+countTotalSalary({ mango: 100, poly: 150, alfred: 80 }); // returns 330
+countTotalSalary({ kiwi: 200, poly: 50, ajax: 150 }); // returns 400
+
+console.log(countTotalSalary({})); // returns 0
+console.log(countTotalSalary({ mango: 100, poly: 150, alfred: 80 })); // returns 330
+console.log(countTotalSalary({ kiwi: 200, poly: 50, ajax: 150 })); // returns 400
+*/
+
+// RESULT
+/*
+Result
+
+Done
+
+Assignment 16/41
+The function countTotalSalary(salaries) is declared
+The call countTotalSalary({}) returns 0
+The call countTotalSalary({ mango: 100, poly: 150, alfred: 80}) returns 330
+The call countTotalSalary({ kiwi: 200, poly: 50, ajax: 150 }}) returns 400
+The function only counts the object's own properties
+
+Result of code execution:
+0
+330
+400
+
+*/
+
+///////////////////////////////////////////////
+// JS V2 block-3 Autochecking  ASSIGNMENT 17/41  Status: Done
 
 /*
 ** THEORY
