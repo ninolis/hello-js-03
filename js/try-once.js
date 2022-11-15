@@ -1,30 +1,247 @@
 'use strict';
 
-function includes(array, value) {
-  let result;
-  for (let i = 0; i < array.length; i += 1) {
-    if (array[i] === value) {
-      result = true;
-      break;
-    } else {
-      result = false;
-    }
+function countTotalSalary(salaries) {
+  let totalSalary = 0;
+  // Change code below this line
+  const values = Object.values(salaries);
+  for (const salary of values) {
+    totalSalary += salary;
   }
-  return result;
+  // Change code above this line
+  return totalSalary;
 }
+
+countTotalSalary({}); // returns 0
+countTotalSalary({ mango: 100, poly: 150, alfred: 80 }); // returns 330
+countTotalSalary({ kiwi: 200, poly: 50, ajax: 150 }); // returns 400
+
+console.log(countTotalSalary({})); // returns 0
+console.log(countTotalSalary({ mango: 100, poly: 150, alfred: 80 })); // returns 330
+console.log(countTotalSalary({ kiwi: 200, poly: 50, ajax: 150 })); // returns 400
+
+// function countProps(object) {
+//   // Change code below this line
+//   let propCount = 0;
+//   const keys = Object.keys(object);
+//   for (const key of keys) {
+//     if (object.hasOwnProperty(key)) {
+//       propCount += 1;
+//     }
+//   }
+
+//   return propCount;
+//   // Change code above this line
+// }
+
+// countProps({}); // returns 0
+// countProps({ name: 'Mango', age: 2 }); // returns 2
+// countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 }); // returns 3
+
+// console.log(countProps({})); // returns 0
+// console.log(countProps({ name: 'Mango', age: 2 })); // returns 2
+// console.log(countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 })); // returns 3
+
+// const apartment = {
+//   descr: 'Spacious apartment in the city center',
+//   rating: 4,
+//   price: 2153,
+// };
+// const values = [];
+// const keys = Object.keys(apartment);
+
+// for (const key of keys) {
+//   // if (apartment.hasOwnProperty(key)) {
+//   values.push(apartment[key]);
+//   // }
+// }
+
+// console.log(keys);
+// console.log(values);
+// console.table(apartment);
+
+// function countProps(object) {
+//   let propCount = 0;
+//   for (const key in object) {
+//     if (object.hasOwnProperty(key)) {
+//       propCount += 1;
+//     }
+//   }
+//   return propCount;
+// }
+
+// countProps({}); // returns 0
+// countProps({ name: 'Mango', age: 2 }); // returns 2
+// countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 }); // returns 3
+
+// console.log(countProps({}));
+// console.log(countProps({ name: 'Mango', age: 2 }));
+// console.log(countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 }));
+
+// const keys = [];
+// const values = [];
+// const advert = {
+//   service: 'apt',
+// };
+
+// const apartment = Object.create(advert);
+// apartment.descr = 'Spacious apartment in the city center';
+// apartment.rating = 4;
+// apartment.price = 2153;
+
+// console.log(apartment.service);
+// console.log(apartment);
+// console.table(apartment);
+
+// for (const key in apartment) {
+//   // Change code below this line
+//   if (apartment.hasOwnProperty(key)) {
+//     keys.push(key);
+//     values.push(apartment[key]);
+//   }
+
+//   // Change code above this line
+// }
+// keys;
+// values;
+// console.log(keys);
+// console.log(values);
+
+// const apartment = {
+//   imgUrl: 'https://via.placeholder.com/640x480',
+//   descr: 'Spacious apartment in the city center',
+//   rating: 4.7,
+//   price: 5000,
+//   tags: ['premium', 'promoted', 'top', 'trusted'],
+//   owner: {
+//     name: 'Henry Sibola',
+//     phone: '982-126-1588',
+//     email: 'henry.carter@aptmail.com',
+//   },
+// };
+
+// // Change code below this line
+
+// apartment.area = 60;
+// apartment.rooms = 3;
+// apartment.location = {};
+// apartment.location.country = 'Jamaica';
+// apartment.location.city = 'Kingston';
+
+// console.table(apartment);
+// console.log(apartment);
+// apartment;
+/*
+
+// const apartment = {
+//   imgUrl: 'https://via.placeholder.com/640x480',
+//   descr: 'Spacious apartment in the city center',
+//   rating: 4,
+//   price: 2153,
+//   tags: ['premium', 'promoted', 'top'],
+//   owner: {
+//     name: 'Henry',
+//     phone: '982-126-1588',
+//     email: 'henry.carter@aptmail.com',
+//   },
+// };
+
+// // Change code below this line
+// apartment.price = 5000;
+// apartment.owner.name = 'Henry Sibola';
+// apartment.rating = 4.7;
+// apartment.tags.push('trusted');
+
+// console.table(apartment);
+// console.log(apartment);
+/*
+const apartment = {
+  imgUrl: 'https://via.placeholder.com/640x480',
+  descr: 'Spacious apartment in the city center',
+  rating: 4,
+  price: 2153,
+  tags: ['premium', 'promoted', 'top'],
+};
+
+// Change code below this line
+apartment.price = 5000;
+apartment.owner.name = 'Henry Sibola';
+apartment.rating = 4.7;
+apartment.tags.push('trusted');
+
+const aptRating = apartment['rating'];
+const aptDescr = apartment['descr'];
+const aptPrice = apartment['price'];
+const aptTags = apartment['tags'];
+// Change code above this line
+console.log(aptRating);
+console.log(aptDescr);
+console.log(aptPrice);
+console.log(aptTags);
+
+*/
+// const apartment = {
+//   imgUrl: 'https://via.placeholder.com/640x480',
+//   descr: 'Spacious apartment in the city center',
+//   rating: 4,
+//   price: 2153,
+//   tags: ['premium', 'promoted', 'top'],
+//   owner: {
+//     name: 'Henry',
+//     phone: '982-126-1588',
+//     email: 'henry.carter@aptmail.com',
+//   },
+// };
+
+// console.log(apartment);
+
+// // Change code below this line
+// const ownerName = apartment.owner.name;
+// const ownerPhone = apartment.owner.phone; //'982-126-1588';
+// const ownerEmail = apartment.owner.email; //'henry.carter@aptmail.com';
+// const numberOfTags = apartment.tags.length; //3;
+// const firstTag = apartment.tags[0]; //'premium';
+// const lastTag = apartment.tags[numberOfTags - 1]; //'top';
+
+// console.log(ownerName, ownerPhone, ownerEmail, numberOfTags, firstTag, lastTag);
+// console.log(ownerName);
+// console.log(ownerPhone);
+// console.log(ownerEmail);
+// console.log(numberOfTags);
+// console.log(firstTag);
+// console.log(lastTag);
+
+// const aptRating = apartment.rating;
+// const aptDescr = apartment.descr;
+// const aptPrice = apartment.price;
+// const aptTags = apartment.tags;
+// Change code above this line
+// console.log(aptRating, aptDescr, aptPrice, aptTags);
+
+// function includes(array, value) {
+//   let result;
+//   for (let i = 0; i < array.length; i += 1) {
+//     if (array[i] === value) {
+//       result = true;
+//       break;
+//     } else {
+//       result = false;
+//     }
+//   }
+//   return result;
+// }
 
 // return isMember ? '$2.00' : '$10.00';
 
-console.log(includes([1, 2, 3, 4, 5], 3)); // returns true
-console.log(includes([1, 2, 3, 4, 5], 17)); // returns false
-console.log(
-  includes(['Earth', 'Mars', 'Venus', 'Jupiter', 'Saturn'], 'Jupiter')
-); // returns true
-console.log(
-  includes(['Earth', 'Mars', 'Venus', 'Jupiter', 'Saturn'], 'Uranus')
-); // returns false
-console.log(includes(['apple', 'plum', 'pear', 'orange'], 'plum')); // returns true
-console.log(includes(['apple', 'plum', 'pear', 'orange'], 'kiwi')); // returns false
+// console.log(includes([1, 2, 3, 4, 5], 3)); // returns true
+// console.log(includes([1, 2, 3, 4, 5], 17)); // returns false
+// console.log(
+//   includes(['Earth', 'Mars', 'Venus', 'Jupiter', 'Saturn'], 'Jupiter')
+// ); // returns true
+// console.log(
+//   includes(['Earth', 'Mars', 'Venus', 'Jupiter', 'Saturn'], 'Uranus')
+// ); // returns false
+// console.log(includes(['apple', 'plum', 'pear', 'orange'], 'plum')); // returns true
+// console.log(includes(['apple', 'plum', 'pear', 'orange'], 'kiwi')); // returns false
 
 // function findNumber(start, end, divisor) {
 //   let number;
