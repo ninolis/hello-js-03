@@ -1,5 +1,576 @@
 'use strict';
 
+const atTheOldToad = {
+  potions: [
+    { name: 'Speed potion', price: 460 },
+    { name: 'Dragon breath', price: 780 },
+    { name: 'Stone skin', price: 520 },
+  ],
+  // Change code below this line
+  getPotions() {
+    return this.potions;
+  },
+  addPotion(newPotion) {
+    for (const item of this.potions) {
+      if (item.name === newPotion.name) {
+        return `Error! Potion ${newPotion.name} is already in your inventory!`;
+      }
+    }
+    this.potions.push(newPotion);
+  },
+
+  removePotion(potionName) {
+    for (let i = 0; i < this.potions.length; i += 1) {
+      const potion = this.potions[i];
+      if (potionName === potion.name) {
+        // return `Potion ${potionName} is not in inventory!`;
+        this.potions.splice(i, 1);
+      }
+    }
+  },
+
+  updatePotionName(oldName, newName) {
+    let result = `Potion ${oldName} is not in inventory`;
+    for (let i = 0; i < this.potions.length; i += 1) {
+      const potion = this.potions[i];
+
+      if (oldName === potion.name) {
+        potion.name = newName;
+        // result = `Found ${oldName} change to ${newName} `;
+      }
+    }
+    return console.log(result);
+  },
+  // Change code above this line
+};
+
+// atTheOldToad.getPotions();
+// console.log(atTheOldToad.getPotions());
+// returns[
+// { name: "Speed potion", price: 460 },
+// { name: "Dragon breath", price: 780 },
+// { name: "Stone skin", price: 520 }
+// ]
+// atTheOldToad.addPotion({ name: 'Invisibility', price: 620 });
+// atTheOldToad.addPotion({ name: 'Speed potion', price: 460 });
+// atTheOldToad.addPotion({ name: 'Invisibility', price: 620 });
+// atTheOldToad.addPotion({ name: 'Invisibility', price: 620 });
+// method in the potions array, the last element will be this object
+// console.log(atTheOldToad.getPotions());
+// returns[
+// { name: "Speed potion", price: 460 },
+// { name: "Dragon breath", price: 780 },
+// { name: "Stone skin", price: 520 },
+// { name: 'Invisibility', price: 620 },
+// ]
+
+// atTheOldToad.addPotion({ name: 'Power potion', price: 270 });
+// atTheOldToad.addPotion({ name: 'Power potion', price: 270 });
+// console.log(atTheOldToad.getPotions());
+// returns[
+// { name: "Speed potion", price: 460 },
+// { name: "Dragon breath", price: 780 },
+// { name: "Stone skin", price: 520 },
+// { name: 'Invisibility', price: 620 },
+// { name: "Power potion", price: 270 }
+// ]
+
+// atTheOldToad.addPotion({ name: 'Dragon breath', price: 700 });
+// atTheOldToad.addPotion({ name: 'Dragon breath', price: 780 });
+// atTheOldToad.removePotion('Dragon breath');
+// console.log(atTheOldToad.potions);
+
+// atTheOldToad.updatePotionName('Dragon breath', 'Polymorth');
+// console.log(atTheOldToad.potions);
+// array ["Speed potion", "Polymorth", "Stone skin"]
+// array["Speed potion", "Stone skin"]
+// method in the potions array, the last element will be this object
+/*
+const atTheOldToad = {
+  potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+  updatePotionName(oldName, newName) {
+    // Change code below this line
+    const potionIndex = this.potions.indexOf(oldName);
+    this.potions.splice(potionIndex, 1, newName);
+  },
+  // Change code above this line
+};
+
+atTheOldToad.updatePotionName('Dragon breath', 'Polymorth');
+console.log(atTheOldToad.potions);
+// array ["Speed potion", "Polymorth", "Stone skin"]
+
+atTheOldToad.updatePotionName('Stone skin', 'Invisibility');
+console.log(atTheOldToad.potions);
+// array ["Speed potion", "Polymorth", "Invisibility"]
+*/
+
+/*
+const atTheOldToad = {
+  potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+  removePotion(potionName) {
+    // Change code below this line
+    const potionIndex = this.potions.indexOf(potionName);
+    this.potions.splice(potionIndex, 1);
+    // Change code above this line
+  },
+};
+
+atTheOldToad.removePotion('Dragon breath');
+console.log(atTheOldToad.potions);
+// array["Speed potion", "Stone skin"]
+
+atTheOldToad.removePotion('Speed potion');
+console.log(atTheOldToad.potions);
+// array["Stone skin"]
+*/
+
+/*
+const atTheOldToad = {
+  potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+  addPotion(potionName) {
+    // Change code below this line
+    this.potions.push(potionName);
+    // Change code above this line
+  },
+};
+
+atTheOldToad.addPotion('Invisibility');
+
+console.log(atTheOldToad.potions);
+// array ["Speed potion", "Dragon breath", "Stone skin", "Invisibility"]
+
+atTheOldToad.addPotion('Power potion');
+
+console.log(atTheOldToad.potions);
+// array ["Speed potion", "Dragon breath", "Stone skin", "Invisibility", "Power potion"]
+console.log();
+*/
+
+/*
+const atTheOldToad = {
+  potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+  // Change code below this line
+  getPotions() {
+    return this.potions;
+  },
+  // Change code above this line
+};
+
+// atTheOldToad.getPotions();
+console.log(atTheOldToad.getPotions());
+*/
+
+/*
+const bookShelf = {
+  books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+  updateBook(oldName, newName) {
+    const bookIndex = this.books.indexOf(oldName);
+    this.books.splice(bookIndex, 1, newName);
+  },
+};
+
+bookShelf.updateBook('Haze', 'Dungeon chronicles');
+// the value of the property books is an array ["The last kingdom", "Dungeon chronicles", "The guardian of dreams"]
+
+console.log(bookShelf.books);
+// array ["The last kingdom", "Dungeon chronicles", "The guardian of dreams"]
+
+bookShelf.updateBook('The last kingdom', 'Dune');
+// the value of the property books is an array ["Dune", "Haze", "The guardian of dreams"]
+
+console.log(bookShelf.books);
+// array ["Dune", "Haze", "The guardian of dreams"]
+*/
+
+/*
+const bookShelf = {
+  // Change code below this line
+  books: ['The last kingdom', 'The guardian of dreams'],
+  getBooks() {
+    return 'Returning all books';
+  },
+  addBook(bookName) {
+    return `Adding book ${bookName}`;
+  },
+  removeBook(bookName) {
+    return `Deleting book ${bookName}`;
+  },
+  updateBook(bookOldName, bookNewName) {
+    return `Updating book ${bookOldName} to ${bookNewName}`;
+  },
+  // Change code above this line
+};
+
+bookShelf.getBooks(); // method returns the string "Returning all books"
+bookShelf.addBook('Haze'); // returns a string "Adding book Haze"
+bookShelf.removeBook('Red sunset'); // returns a string "Deleting book Red sunset"
+bookShelf.updateBook('Sands of dune', 'Dune'); // returns the string "Updating book Sands of dune to Dune"
+
+console.log(bookShelf.getBooks()); // method returns the string "Returning all books"
+console.log(bookShelf.addBook('Haze')); // returns a string "Adding book Haze"
+console.log(bookShelf.removeBook('Red sunset')); // returns a string "Deleting book Red sunset"
+console.log(bookShelf.updateBook('Sands of dune', 'Dune')); // returns the string "Updating book Sands of dune to Dune"
+*/
+
+/*
+function findMatches(arrayNumbers, ...args) {
+  const matches = []; // Don't change this line
+  for (const arg of args) {
+    if (arrayNumbers.includes(arg)) {
+      matches.push(arg);
+    }
+  }
+  // Change code above this line
+  return matches;
+}
+
+findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7); // returns [1, 2]
+findMatches([4, 89, 17, 36, 2], 8, 17, 89, 27, 2); // returns [17, 89, 2]
+findMatches([10, 24, 41, 6, 9, 19], 24, 11, 9, 23, 41); // returns [24, 9, 41]
+findMatches([63, 11, 8, 29], 4, 7, 16); // returns []
+
+console.log(findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7)); // returns [1, 2]
+console.log(findMatches([4, 89, 17, 36, 2], 8, 17, 89, 27, 2)); // returns [17, 89, 2]
+console.log(findMatches([10, 24, 41, 6, 9, 19], 24, 11, 9, 23, 41)); // returns [24, 9, 41]
+console.log(findMatches([63, 11, 8, 29], 4, 7, 16)); // returns []
+*/
+
+/*
+function addOverNum(firstNumber, ...args) {
+  let total = 0;
+
+  for (const arg of args) {
+    if (arg > firstNumber) {
+      total += arg;
+    }
+  }
+
+  return total;
+  // Change code above this line
+}
+*/
+
+/*
+function makeTask(data) {
+  const completed = false;
+  const category = 'General';
+  const priority = 'Normal';
+  // Change code below this line
+  const completedTask = { category, priority, ...data, completed };
+  // Change code above this line
+  return completedTask;
+}
+
+makeTask({});
+// returns { category: "General", priority: "Normal", completed: false }
+
+makeTask({ category: 'Homemade', priority: 'Low', text: 'Take out the trash' });
+// returns { category: "Homemade", priority: "Low", text: "Take out the trash", completed: false }
+
+makeTask({ category: 'Finance', text: 'Take interest' });
+// returns { category: "Finance", priority: "Normal", text: "Take interest", completed: false }
+
+makeTask({ priority: 'Low', text: 'Choose shampoo' });
+// returns { category: "General", priority: "Low", text: "Choose shampoo", completed: false }
+
+makeTask({ text: 'Buy bread' });
+// returns { category: "General", priority: "Normal", text: "Buy bread", completed: false }
+
+console.log(makeTask({}));
+// returns { category: "General", priority: "Normal", completed: false }
+
+console.log(
+  makeTask({
+    category: 'Homemade',
+    priority: 'Low',
+    text: 'Take out the trash',
+  })
+);
+// returns { category: "Homemade", priority: "Low", text: "Take out the trash", completed: false }
+
+console.log(makeTask({ category: 'Finance', text: 'Take interest' }));
+// returns { category: "Finance", priority: "Normal", text: "Take interest", completed: false }
+
+console.log(makeTask({ priority: 'Low', text: 'Choose shampoo' }));
+// returns { category: "General", priority: "Low", text: "Choose shampoo", completed: false }
+
+console.log(makeTask({ text: 'Buy bread' }));
+// returns { category: "General", priority: "Normal", text: "Buy bread", completed: false }
+*/
+
+/*
+function calculateMeanTemperature(forecast) {
+  const {
+    today: { low: todayLow, high: todayHigh },
+    tomorrow: { low: tomorrowLow, high: tomorrowHigh },
+  } = forecast;
+  return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
+}
+
+calculateMeanTemperature({
+  today: { low: 28, high: 32 },
+  tomorrow: { low: 25, high: 29 },
+}); // returns 28.5
+calculateMeanTemperature({
+  today: { low: 37, high: 40 },
+  tomorrow: { low: 33, high: 38 },
+}); // returns 37
+
+console.log(
+  calculateMeanTemperature({
+    today: { low: 28, high: 32 },
+    tomorrow: { low: 25, high: 29 },
+  })
+); // returns 28.5
+console.log(
+  calculateMeanTemperature({
+    today: { low: 37, high: 40 },
+    tomorrow: { low: 33, high: 38 },
+  })
+); // returns 37
+*/
+
+/*
+const forecast = {
+  today: {
+    low: 28,
+    high: 32,
+    icon: 'https://www.flaticon.com/svg/static/icons/svg/861/861059.svg',
+  },
+  tomorrow: {
+    low: 27,
+    high: 31,
+  },
+};
+
+const {
+  today: {
+    low: lowToday,
+    high: highToday,
+    icon: todayIcon = 'https://www.flaticon.com/svg/static/icons/svg/861/861059.svg',
+  },
+  tomorrow: {
+    low: lowTomorrow,
+    high: highTomorrow,
+    icon: tomorrowIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+  },
+} = forecast;
+
+console.log(lowToday); // = forecast.today.low;
+console.log(highToday); // = forecast.today.high;
+console.log(todayIcon); // = forecast.today.icon;
+
+console.log(lowTomorrow); // = forecast.tomorrow.low;
+console.log(highTomorrow); // = forecast.tomorrow.high;
+console.log(tomorrowIcon); // = forecast.tomorrow.icon;
+*/
+
+/*
+const colors = [
+  { hex: '#f44336', rgb: '244,67,54' },
+  { hex: '#2196f3', rgb: '33,150,243' },
+  { hex: '#4caf50', rgb: '76,175,80' },
+  { hex: '#ffeb3b', rgb: '255,235,59' },
+];
+
+const hexColors = [];
+const rgbColors = [];
+// Change code below this line
+
+for (const { hex, rgb } of colors) {
+  hexColors.push(hex);
+  rgbColors.push(rgb);
+}
+console.log(hexColors);
+console.log(rgbColors);
+*/
+
+// const highTemperatures = {
+//   yesterday: 28,
+//   today: 26,
+//   tomorrow: 33,
+// };
+// // Change code below this line
+
+// const {
+//   yesterday: highYesterday,
+//   today: highToday,
+//   tomorrow: highTomorrow,
+//   icon: highIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+// } = highTemperatures;
+
+// // Change code above this line
+// const meanTemperature = (highYesterday + highToday + highTomorrow) / 3;
+// console.log(meanTemperature);
+
+/*
+const highTemperatures = {
+  yesterday: 28,
+  today: 26,
+  tomorrow: 33,
+};
+// Change code below this line
+
+const {
+  yesterday,
+  today,
+  tomorrow,
+  icon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+} = highTemperatures;
+
+// Change code above this line
+const meanTemperature = (yesterday + today + tomorrow) / 3;
+console.log(meanTemperature);
+*/
+
+/*
+const highTemperatures = {
+  yesterday: 28,
+  today: 26,
+  tomorrow: 33,
+};
+// Change code below this line
+
+const { yesterday, today, tomorrow } = highTemperatures;
+
+// Change code above this line
+const meanTemperature = (yesterday + today + tomorrow) / 3;
+console.log(meanTemperature);
+*/
+/*
+const products = [
+  { name: 'Radar', price: 1300, quantity: 4 },
+  { name: 'Scanner', price: 2700, quantity: 3 },
+  { name: 'Droid', price: 400, quantity: 7 },
+  { name: 'Grip', price: 1200, quantity: 9 },
+];
+
+function calculateTotalPrice(productName) {
+  let totalPrice;
+  for (const product of products) {
+    // console.log(product.name);
+    // console.log(productName === product['name']);
+    // console.log(productName === product.name);
+    // console.log(product.price);
+    // console.log(product.quantity);
+    // console.log(product.price * product.quantity);
+    // console.log((totalPrice = product.price * product.quantity));
+    if (productName === product.name) {
+      // if (productName === product['name']) {
+      totalPrice = product.price * product.quantity;
+      break;
+    } else {
+      totalPrice = 0;
+    }
+  }
+  return totalPrice;
+}
+
+calculateTotalPrice('Blaster'); // returns 0
+calculateTotalPrice('Radar'); // returns 5200
+calculateTotalPrice('Droid'); // returns 2800
+calculateTotalPrice('Grip'); // returns 10800
+calculateTotalPrice('Scanner'); // returns 8100
+
+console.log(calculateTotalPrice('Blaster')); // returns 0
+console.log(calculateTotalPrice('Radar')); // returns 5200
+console.log(calculateTotalPrice('Droid')); // returns 2800
+console.log(calculateTotalPrice('Grip')); // returns 10800
+console.log(calculateTotalPrice('Scanner')); // returns 8100
+*/
+
+/*
+const products = [
+  { name: 'Radar', price: 1300, quantity: 4 },
+  { name: 'Scanner', price: 2700, quantity: 3 },
+  { name: 'Droid', price: 400, quantity: 7 },
+  { name: 'Grip', price: 1200, quantity: 9 },
+];
+
+function getAllPropValues(propName) {
+  let propValues = [];
+  for (const product of products) {
+    if (product[propName]) {
+      propValues.push(product[propName]);
+    } else {
+      propValues = [];
+    }
+  }
+  // console.log(propValues);
+  // console.table(propValues);
+  return propValues;
+}
+
+// function getAllPropValues(propName) {
+//   let propValues = [];
+//   for (const product of products) {
+//     if (product[propName] === undefined) {
+//       propValues = [];
+//       break;
+//     } else {
+//       // console.log(product[propName]);
+//       propValues.push(product[propName]);
+//     }
+//   }
+//   // console.log(propValues);
+//   // console.table(propValues);
+//   return propValues;
+// }
+
+getAllPropValues('name'); // returns ["Radar", "Scanner", "Droid", "Grip"]
+getAllPropValues('quantity'); // returns [4, 3, 7, 9]
+getAllPropValues('price'); // returns [1300, 2700, 400, 1200]
+getAllPropValues('category'); // returns []
+
+console.log(getAllPropValues('quantity')); // returns [4, 3, 7, 9]
+console.log(getAllPropValues('name')); // returns ["Radar", "Scanner", "Droid", "Grip"]
+console.log(getAllPropValues('price')); // returns [1300, 2700, 400, 1200]
+console.log(getAllPropValues('category')); // returns []
+*/
+/*
+const products = [
+  { name: 'Radar', price: 1300, quantity: 4 },
+  { name: 'Scanner', price: 2700, quantity: 3 },
+  { name: 'Droid', price: 400, quantity: 7 },
+  { name: 'Grip', price: 1200, quantity: 9 },
+];
+
+function getProductPrice(productName) {
+  // Change code below this line
+  let result;
+  for (const product of products) {
+    // console.log(product.name);
+    // console.log(productName);
+    // console.log(productName === product.name);
+    // console.log(product.price);
+
+    if (productName === product.name) {
+      // console.log(product.price);
+      result = product.price;
+      break;
+    } else {
+      // console.log(null);
+      result = null;
+    }
+    // Change code above this line
+  }
+  return result;
+}
+
+getProductPrice('Radar'); // returns 1300.
+getProductPrice('Grip'); // returns 1200.
+getProductPrice('Scanner'); // returns 2700.
+getProductPrice('Droid'); // returns 400.
+getProductPrice('Engine'); // returns null.
+
+console.log(getProductPrice('Radar')); // returns 1300.
+console.log(getProductPrice('Grip')); // returns 1200.
+console.log(getProductPrice('Scanner')); // returns 2700.
+console.log(getProductPrice('Droid')); // returns 400.
+console.log(getProductPrice('Engine')); // returns null.
+*/
+
 // const colors = [
 //   { hex: '#f44336', rgb: '244,67,54' },
 //   { hex: '#2196f3', rgb: '33,150,243' },
